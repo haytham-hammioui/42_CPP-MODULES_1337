@@ -10,14 +10,14 @@ all:$(NAME)
 $(NAME) : $(OBJ)
 	$(CPP) $(FLAGS) -o $(NAME) $(OBJ)
 	
-%.o:%.cpp zombie.hpp
+%.o:%.cpp Zombie.hpp
 	$(CPP) $(FLAGS) -c $< -o $@
 
 clean:
-	rm $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re : fclean all
 
