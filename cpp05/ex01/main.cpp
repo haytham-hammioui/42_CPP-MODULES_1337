@@ -40,7 +40,7 @@ int main()
     std::cout << "\n----- INVALID FORM (too high grade) -----" << std::endl;
     try
     {
-        Form badForm("BadForm1", 0, 10); // invalid
+        Form badForm("BadForm1", 0, 10);
     }
     catch (std::exception &e)
     {
@@ -50,7 +50,7 @@ int main()
     std::cout << "\n----- INVALID FORM (too low grade) -----" << std::endl;
     try
     {
-        Form badForm2("BadForm2", 10, 200); // invalid
+        Form badForm2("BadForm2", 10, 200);
     }
     catch (std::exception &e)
     {
