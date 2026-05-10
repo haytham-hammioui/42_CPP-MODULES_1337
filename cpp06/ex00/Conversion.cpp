@@ -97,8 +97,17 @@ void ScalarConverter::convert(std::string str)
     double value;
     if (type == "char")
         value = static_cast<double>(str[0]);
-    else if (type == "int")
-        value = static_cast<double>(std::atoi(str.c_str()));
+    else if (type == "int"){
+        char *end;
+        errno = 0;
+        long nbr = std::strtol(str.c_str(), &end, 10);
+        if (errno == ERANGE || nbr < INT_MIN || nbr > INT_MAX)
+        {
+            std::cout << "Error" << std::endl;
+            return;
+        }
+        value = static_cast<double>(nbr);
+    }
     else if (type == "float")
         value = static_cast<double>(std::strtof(str.c_str(), NULL));
     else if (type == "double")
