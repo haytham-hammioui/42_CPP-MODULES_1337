@@ -1,53 +1,69 @@
 #include <iostream>
-#include <Array.hpp>
+#include <string>
+#include "Array.hpp"
 
-#define MAX_VAL 750
-int main(int, char**)
+int main()
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+    std::cout << "===== EMPTY ARRAY =====" << std::endl;
+    Array<int> empty;
+    std::cout << "empty size: " << empty.size() << std::endl;
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
+    std::cout << "\n===== INT ARRAY =====" << std::endl;
+    Array<int> numbers(5);
+
+    for (unsigned int i = 0; i < numbers.size(); i++)
+        numbers[i] = i * 10;
+
+    for (unsigned int i = 0; i < numbers.size(); i++)
+        std::cout << "numbers[" << i << "] = " << numbers[i] << std::endl;
+
+    std::cout << "\n===== COPY CONSTRUCTOR =====" << std::endl;
+    Array<int> copy(numbers);
+
+    copy[0] = 999;
+
+    std::cout << "original[0] = " << numbers[0] << std::endl;
+    std::cout << "copy[0]     = " << copy[0] << std::endl;
+
+    std::cout << "\n===== ASSIGNMENT OPERATOR =====" << std::endl;
+    Array<int> assigned;
+
+    assigned = numbers;
+
+    assigned[1] = 555;
+
+    std::cout << "original[1] = " << numbers[1] << std::endl;
+    std::cout << "assigned[1] = " << assigned[1] << std::endl;
+
+    std::cout << "\n===== STRING ARRAY =====" << std::endl;
+    Array<std::string> words(3);
+
+    words[0] = "hello";
+    words[1] = "cpp";
+    words[2] = "templates";
+
+    for (unsigned int i = 0; i < words.size(); i++)
+        std::cout << "words[" << i << "] = " << words[i] << std::endl;
+
+    std::cout << "\n===== OUT OF BOUNDS TEST =====" << std::endl;
+
     try
     {
-        numbers[-2] = 0;
+        std::cout << numbers[100] << std::endl;
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+        std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
+    try
     {
-        numbers[i] = rand();
+        std::cout << numbers[-1] << std::endl;
     }
-    delete [] mirror;//
+    catch (const std::exception &e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
     return 0;
 }
