@@ -4,6 +4,10 @@
 
 int main()
 {
+    std::cout << "===== EMPTY ARRAY =====" << std::endl;
+    Array<int> empty;
+    std::cout << "empty size: " << empty.size() << std::endl;
+
     std::cout << "\n===== INT ARRAY =====" << std::endl;
     Array<int> numbers(5);
 
