@@ -43,14 +43,6 @@ class Array
             }
             return data[index];
         }
-        const T &operator[](unsigned int index) const
-        {
-            if (index >= sizearray)
-            {
-                throw std::out_of_range("Index out of range");
-            }
-            return data[index];
-        }
 
         unsigned int size() const { return sizearray; }
 };

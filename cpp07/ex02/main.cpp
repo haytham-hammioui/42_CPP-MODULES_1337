@@ -4,10 +4,6 @@
 
 int main()
 {
-    std::cout << "===== EMPTY ARRAY =====" << std::endl;
-    Array<int> empty;
-    std::cout << "empty size: " << empty.size() << std::endl;
-
     std::cout << "\n===== INT ARRAY =====" << std::endl;
     Array<int> numbers(5);
 
@@ -16,24 +12,6 @@ int main()
 
     for (unsigned int i = 0; i < numbers.size(); i++)
         std::cout << "numbers[" << i << "] = " << numbers[i] << std::endl;
-
-    std::cout << "\n===== COPY CONSTRUCTOR =====" << std::endl;
-    Array<int> copy(numbers);
-
-    copy[0] = 999;
-
-    std::cout << "original[0] = " << numbers[0] << std::endl;
-    std::cout << "copy[0]     = " << copy[0] << std::endl;
-
-    std::cout << "\n===== ASSIGNMENT OPERATOR =====" << std::endl;
-    Array<int> assigned;
-
-    assigned = numbers;
-
-    assigned[1] = 555;
-
-    std::cout << "original[1] = " << numbers[1] << std::endl;
-    std::cout << "assigned[1] = " << assigned[1] << std::endl;
 
     std::cout << "\n===== STRING ARRAY =====" << std::endl;
     Array<std::string> words(3);
@@ -50,15 +28,6 @@ int main()
     try
     {
         std::cout << numbers[100] << std::endl;
-    }
-    catch (const std::exception &e)
-    {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        std::cout << numbers[-1] << std::endl;
     }
     catch (const std::exception &e)
     {
