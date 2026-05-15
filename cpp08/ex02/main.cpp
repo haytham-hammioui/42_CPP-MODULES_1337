@@ -22,6 +22,25 @@ while (it != ite)
 std::cout << *it << std::endl;
 ++it;
 }
-std::stack<int> s(mstack);
+std::stack<int> copy(mstack);
+
+std::cout << "\n===== MODIFY THROUGH ITERATOR =====" << std::endl;
+for (MutantStack<int>::iterator i = mstack.begin(); i != mstack.end(); ++i)
+    *i += 10;
+
+for (MutantStack<int>::iterator i = mstack.begin(); i != mstack.end(); ++i)
+    std::cout << *i << std::endl;
+
+std::cout << "\n===== STRING TEST =====" << std::endl;
+MutantStack<std::string> strStack;
+strStack.push("hello");
+strStack.push("world");
+strStack.push("42");
+for (MutantStack<std::string>::iterator i = strStack.begin();
+    i != strStack.end(); ++i)
+{
+    std::cout << *i << std::endl;
+}
+
 return 0;
 }

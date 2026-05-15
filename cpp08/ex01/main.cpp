@@ -15,9 +15,15 @@ int main()
 
     std::cout << "----------------------"<< std::endl;
     Span sp2(14000);
-    std::vector<int> numbers(14001, 10);
-    sp2.addNumbers(numbers.begin(), numbers.end());
-    std::cout << sp2.shortestSpan() << std::endl;
-    std::cout << sp2.longestSpan() << std::endl;
+    std::vector<int> numbers(1400, 10);
+    try {
+        sp2.addNumbers(numbers.begin(), numbers.end());
+        std::cout << sp2.shortestSpan() << std::endl;
+        std::cout << sp2.longestSpan() << std::endl;
+    }
+    catch (const std::runtime_error &e) {
+        std::cerr << "Warning: " << e.what() << std::endl;
+    }
+    
     return 0;
 }

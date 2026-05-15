@@ -10,7 +10,7 @@ int main()
     vec.push_back(5);
 
     try {
-        std::vector<int>::iterator it = easyfind(vec, 10);
+        std::vector<int>::iterator it = easyfind(vec, 3);
         std::cout << "Value found: " << *it << std::endl;
     } 
     catch (const std::runtime_error &e) {
