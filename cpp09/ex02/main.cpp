@@ -13,10 +13,7 @@ int main(int ac, char **av)
         PmergeMe base;
         base.parseInput(av);
 
-        std::cout << "Before: ";
-        for (int i = 1; av[i]; i++)
-            std::cout << av[i] << " ";
-        std::cout << std::endl;
+        base.printBefore();
 
         /* ================= VECTOR ================= */
         PmergeMe vec = base;
@@ -33,8 +30,7 @@ int main(int ac, char **av)
         clock_t endDeq = clock();
 
         /* ================= AFTER ================= */
-        std::cout << "After: ";
-        vec.printAfter(); // IMPORTANT: only print ONCE
+        vec.printAfter();
 
         double timeVec = (double)(endVec - startVec) * 1e6 / CLOCKS_PER_SEC;
         double timeDeq = (double)(endDeq - startDeq) * 1e6 / CLOCKS_PER_SEC;
