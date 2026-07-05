@@ -44,7 +44,7 @@ void PmergeMe::loadNumbers(int argc, char **argv) {
         _inputnbs.push_back(num);
     }
 
-    if (_vectordata.empty())
+    if (_vectordata.empty() || _dequedata.empty() || _inputnbs.empty())
         throw std::runtime_error("no input");
 }
 

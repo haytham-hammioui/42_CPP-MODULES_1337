@@ -12,7 +12,7 @@ int main(int ac, char **av) {
         p.executesort();
         p.printResult();
     } catch(std::exception& e) {
-        std::cout << "Error" << std::endl;
+        std::cout << e.what() << std::endl;
         return 1;
     }
 
