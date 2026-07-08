@@ -49,7 +49,7 @@ void PmergeMe::loadNumbers(int argc, char **argv) {
 }
 
 
-std::vector<int> PmergeMe::getJacobsthalOrder(int n) {
+std::vector<int> PmergeMe::getJacobsthalOrder(int n) { //start by 0 and 1 and next Jn = J(n-1) + 2 * J(n-2)
     std::vector<int> jacob;
     jacob.push_back(0);
     jacob.push_back(1);

@@ -62,7 +62,7 @@ void RPN::calculate(const std::string &expr)
 
         std::cout << s.top() << std::endl;
     }
-    catch (...)
+    catch (std::exception &e)
     {
         std::cerr << "Error" << std::endl;
     }
