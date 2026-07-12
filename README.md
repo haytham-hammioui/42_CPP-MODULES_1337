@@ -1,6 +1,5 @@
-# C++ Modules Repository
 
-<h1 align="center">42_CPP_SERIES_1337</h1>
+<h1 align="center">42_CPP_MODULES_1337</h1>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ayogun/42-project-badges/main/badges/cppm.png" alt="42 Badge">
